@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jones J | Mobile Application Specialist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        slate: {
+                            950: '#020617',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #020617;
+            color: white;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        
+        /* Background Logo Pattern */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            opacity: 0.03;
+            background: url("https://raw.githubusercontent.com/Jones9601/Portfolio/main/src/logo.svg");
+            background-size: 300px;
+            transform: rotate(-12deg) scale(1.35);
+            animation: slide 40s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes slide {
+            from { background-position: 0 0; }
+            to { background-position: 300px 260px; }
+        }
+
+        .selection-emerald::selection {
+            background-color: rgba(16, 185, 129, 0.3);
+        }
+        .bg-radial-gradient {
+            background: radial-gradient(circle at 50% -20%, #0f172a, transparent);
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        .animate-bounce-slow {
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="selection-emerald">
+    <!-- Progress Bar -->
+    <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-emerald-500 via-cyan-400 to-blue-500 z-[100] transition-all duration-150 shadow-[0_0_15px_rgba(16,185,129,0.5)]" style="width: 0%"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-full max-w-2xl px-4">
+        <div class="bg-slate-900/95 backdrop-blur-xl border-2 border-emerald-500/20 rounded-2xl flex items-center justify-around p-2 shadow-2xl shadow-emerald-500/10 h-16 md:h-20">
+            <a href="#hero" class="nav-link flex flex-col items-center gap-1 px-3 py-1 rounded-xl transition-all hover:bg-white/5 text-emerald-400" data-section="hero">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                <span class="text-[10px] font-bold uppercase tracking-widest hidden md:block">Home</span>
+            </a>
+            <a href="#about" class="nav-link flex flex-col items-center gap-1 px-3 py-1 rounded-xl transition-all hover:bg-white/5 text-slate-400" data-section="about">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <span class="text-[10px] font-bold uppercase tracking-widest hidden md:block">About</span>
+            </a>
+            <a href="#skills" class="nav-link flex flex-col items-center gap-1 px-3 py-1 rounded-xl transition-all hover:bg-white/5 text-slate-400" data-section="skills">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                <span class="text-[10px] font-bold uppercase tracking-widest hidden md:block">Skills</span>
+            </a>
+            <a href="#projects" class="nav-link flex flex-col items-center gap-1 px-3 py-1 rounded-xl transition-all hover:bg-white/5 text-slate-400" data-section="projects">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/><path d="M6 7h12"/><path d="M6 11h12"/><path d="M6 15h12"/></svg>
+                <span class="text-[10px] font-bold uppercase tracking-widest hidden md:block">Projects</span>
+            </a>
+            <a href="#contact" class="nav-link flex flex-col items-center gap-1 px-3 py-1 rounded-xl transition-all hover:bg-white/5 text-slate-400" data-section="contact">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                <span class="text-[10px] font-bold uppercase tracking-widest hidden md:block">Contact</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Background Layers -->
+    <div class="fixed inset-0 pointer-events-none z-0">
+        <div class="absolute top-0 left-0 w-full h-full bg-radial-gradient"></div>
+        <div id="blob-1" class="absolute top-[5%] left-[-5%] w-[40rem] h-[40rem] bg-emerald-600/10 rounded-full blur-[140px] transition-transform duration-1000"></div>
+        <div id="blob-2" class="absolute bottom-[10%] right-[-5%] w-[45rem] h-[45rem] bg-blue-600/10 rounded-full blur-[160px] transition-transform duration-1000"></div>
+    </div>
+
+    <main class="relative z-10">
+        <!-- Hero Section -->
+        <section id="hero" class="flex flex-col items-center justify-center min-h-screen relative overflow-hidden py-20 px-6">
+            <div class="absolute inset-0 z-0">
+                <div class="absolute inset-0 bg-gradient-to-b from-[#020617]/40 via-[#020617]/80 to-[#020617] z-10"></div>
+                <img src="https://images.unsplash.com/photo-1550439062-609e1531270e?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover" alt="Background">
+            </div>
+
+            <div class="relative z-20 flex flex-col items-center max-w-5xl">
+                <div class="mb-8 px-6 py-2 bg-emerald-500/10 border border-emerald-500/30 rounded-full backdrop-blur-md">
+                    <span class="text-emerald-400 font-bold tracking-widest text-xs md:text-sm uppercase">Available for New Projects</span>
+                </div>
+
+                <h1 class="text-6xl md:text-[10rem] font-black leading-[0.9] text-white tracking-tighter text-center mb-6">
+                    JONES<span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">.J</span>
+                </h1>
+
+                <div class="h-px w-24 bg-gradient-to-r from-transparent via-white/40 to-transparent mb-8"></div>
+
+                <h2 class="text-xl md:text-4xl font-medium text-slate-300 text-center max-w-3xl leading-snug">
+                    Architecting <span class="text-white font-bold italic">High-Performance</span> Mobile Solutions & <span class="text-emerald-400">Fintech</span> Infrastructures.
+                </h2>
+
+                <div class="flex flex-col sm:flex-row items-center gap-6 mt-12 w-full justify-center">
+                    <a href="./jones_resume-11-01-2026.pdf" download class="group relative px-10 py-5 bg-white text-black font-black text-xl rounded-2xl transition-all shadow-[0_20px_40px_-10px_rgba(255,255,255,0.3)] overflow-hidden text-center w-full sm:w-auto hover:scale-105 active:scale-95">
+                        <span class="relative z-10 flex items-center justify-center gap-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                            DOWNLOAD CV
+                        </span>
+                    </a>
+
+                    <a href="#projects" class="px-10 py-5 bg-slate-900/50 backdrop-blur-xl border border-white/10 text-white font-black text-xl rounded-2xl transition-all hover:bg-slate-800/80 text-center w-full sm:w-auto hover:scale-105 active:scale-95">
+                        VIEW PROJECTS
+                    </a>
+                </div>
+
+                <div class="mt-20 flex flex-col items-center gap-3 opacity-40 animate-bounce-slow">
+                    <div class="w-6 h-10 border-2 border-white rounded-full flex justify-center p-1">
+                        <div class="w-1.5 h-1.5 bg-white rounded-full"></div>
+                    </div>
+                    <span class="text-[10px] font-bold uppercase tracking-[0.3em]">Scroll</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="max-w-7xl mx-auto px-4 py-20">
+            <div class="bg-slate-900/50 backdrop-blur-xl rounded-[40px] p-10 md:p-16 shadow-2xl border border-white/5 relative overflow-hidden reveal">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-emerald-500/50 to-transparent"></div>
+                
+                <h3 class="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 mb-16 text-center">
+                    The Developer Behind the Code
+                </h3>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-16 items-start relative z-10">
+                    <div class="lg:col-span-1 flex flex-col items-center gap-8">
+                        <div class="relative group">
+                            <div class="absolute -inset-4 bg-gradient-to-tr from-emerald-500 to-cyan-500 rounded-[3rem] blur-2xl opacity-20 group-hover:opacity-40 transition duration-700"></div>
+                            <div class="relative bg-slate-800 rounded-[3rem] p-3 shadow-2xl border border-white/10 overflow-hidden">
+                                <img src="jones.png" alt="Profile" class="w-64 h-64 md:w-80 md:h-80 rounded-[2.5rem] shadow-2xl object-cover transition-transform duration-700 group-hover:scale-110">
+                            </div>
+                        </div>
+                        <div class="text-center space-y-3">
+                            <h4 class="text-3xl font-bold text-white tracking-tight">Jones J</h4>
+                            <p class="text-xl text-emerald-400 font-semibold tracking-wide">Building the Future of Mobile</p>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-2 space-y-8">
+                        <div class="bg-slate-800/40 backdrop-blur-md rounded-3xl p-8 border border-white/5 hover:border-emerald-500/20 transition-all duration-500 shadow-xl group">
+                            <h5 class="text-2xl font-bold text-emerald-300 mb-5 flex items-center gap-3">
+                                <span class="w-1.5 h-8 bg-gradient-to-b from-emerald-400 to-teal-400 rounded-full group-hover:scale-y-110 transition-transform"></span>
+                                Professional Journey
+                            </h5>
+                            <p class="text-gray-300 text-lg leading-relaxed">
+                                As a <span class="text-white font-bold">Mobile Application Specialist</span>, I've spent the last 4+ years turning complex problems into elegant, thumb-friendly experiences. My journey in the <span class="text-emerald-300">Fintech sector</span> has taught me that security and performance aren't just features—they're the foundation of user trust.
+                            </p>
+                        </div>
+
+                        <div class="bg-slate-800/40 backdrop-blur-md rounded-3xl p-8 border border-white/5 hover:border-teal-500/20 transition-all duration-500 shadow-xl group">
+                            <h5 class="text-2xl font-bold text-teal-300 mb-5 flex items-center gap-3">
+                                <span class="w-1.5 h-8 bg-gradient-to-b from-teal-400 to-cyan-400 rounded-full group-hover:scale-y-110 transition-transform"></span>
+                                Core Philosophy
+                            </h5>
+                            <p class="text-gray-300 text-lg leading-relaxed">
+                                I believe in <span class="text-white font-bold">clean architecture</span> and <span class="text-teal-300">pixel-perfect execution</span>. Whether it's a Flutter app reaching thousands of users or a robust Node.js backend handling critical financial data, I focus on building scalable systems that stand the test of time.
+                            </p>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+                                <div class="bg-slate-900/60 rounded-2xl p-4 border border-white/5 text-center hover:bg-slate-900 transition-colors">
+                                    <div class="h-1 w-8 mx-auto mb-3 bg-gradient-to-r from-emerald-500 to-transparent rounded-full"></div>
+                                    <p class="text-white font-bold text-sm">Mobile</p>
+                                    <p class="text-gray-500 text-[10px] uppercase tracking-widest mt-1">Flutter/iOS</p>
+                                </div>
+                                <div class="bg-slate-900/60 rounded-2xl p-4 border border-white/5 text-center hover:bg-slate-900 transition-colors">
+                                    <div class="h-1 w-8 mx-auto mb-3 bg-gradient-to-r from-teal-500 to-transparent rounded-full"></div>
+                                    <p class="text-white font-bold text-sm">Backend</p>
+                                    <p class="text-gray-500 text-[10px] uppercase tracking-widest mt-1">Java/Node</p>
+                                </div>
+                                <div class="bg-slate-900/60 rounded-2xl p-4 border border-white/5 text-center hover:bg-slate-900 transition-colors">
+                                    <div class="h-1 w-8 mx-auto mb-3 bg-gradient-to-r from-cyan-500 to-transparent rounded-full"></div>
+                                    <p class="text-white font-bold text-sm">Cloud</p>
+                                    <p class="text-gray-500 text-[10px] uppercase tracking-widest mt-1">AWS/GCS</p>
+                                </div>
+                                <div class="bg-slate-900/60 rounded-2xl p-4 border border-white/5 text-center hover:bg-slate-900 transition-colors">
+                                    <div class="h-1 w-8 mx-auto mb-3 bg-gradient-to-r from-blue-500 to-transparent rounded-full"></div>
+                                    <p class="text-white font-bold text-sm">Fintech</p>
+                                    <p class="text-gray-500 text-[10px] uppercase tracking-widest mt-1">Banking/UX</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="max-w-7xl mx-auto px-4 py-20 reveal">
+            <div class="bg-slate-900/30 rounded-[40px] p-10 md:p-16 shadow-xl border border-white/5 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-96 h-96 bg-teal-500/5 rounded-full blur-[120px] pointer-events-none"></div>
+                <div class="absolute bottom-0 left-0 w-96 h-96 bg-emerald-500/5 rounded-full blur-[120px] pointer-events-none"></div>
+                
+                <h3 class="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400 mb-16 text-center">Tech Stack</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div class="flex flex-col items-center gap-4 bg-slate-800/60 p-8 rounded-3xl shadow-lg border border-white/5 transition-all duration-500 hover:bg-slate-700/80 hover:shadow-cyan-400/20 hover:scale-105 group">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" class="w-12 h-12" alt="Flutter">
+                        <span class="font-bold tracking-wide">Flutter</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-4 bg-slate-800/60 p-8 rounded-3xl shadow-lg border border-white/5 transition-all duration-500 hover:bg-slate-700/80 hover:shadow-blue-400/20 hover:scale-105 group">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" class="w-12 h-12" alt="Dart">
+                        <span class="font-bold tracking-wide">Dart</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-4 bg-slate-800/60 p-8 rounded-3xl shadow-lg border border-white/5 transition-all duration-500 hover:bg-slate-700/80 hover:shadow-cyan-300/20 hover:scale-105 group">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="w-12 h-12" alt="React Native">
+                        <span class="font-bold tracking-wide">React Native</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-4 bg-slate-800/60 p-8 rounded-3xl shadow-lg border border-white/5 transition-all duration-500 hover:bg-slate-700/80 hover:shadow-orange-500/20 hover:scale-105 group">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg" class="w-12 h-12" alt="Swift">
+                        <span class="font-bold tracking-wide">Swift</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-4 bg-slate-800/60 p-8 rounded-3xl shadow-lg border border-white/5 transition-all duration-500 hover:bg-slate-700/80 hover:shadow-yellow-400/20 hover:scale-105 group">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="w-12 h-12" alt="JavaScript">
+                        <span class="font-bold tracking-wide">JavaScript</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-4 bg-slate-800/60 p-8 rounded-3xl shadow-lg border border-white/5 transition-all duration-500 hover:bg-slate-700/80 hover:shadow-blue-500/20 hover:scale-105 group">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" class="w-12 h-12" alt="TypeScript">
+                        <span class="font-bold tracking-wide">TypeScript</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-4 bg-slate-800/60 p-8 rounded-3xl shadow-lg border border-white/5 transition-all duration-500 hover:bg-slate-700/80 hover:shadow-green-500/20 hover:scale-105 group">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" class="w-12 h-12" alt="Spring Boot">
+                        <span class="font-bold tracking-wide">Spring Boot</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-4 bg-slate-800/60 p-8 rounded-3xl shadow-lg border border-white/5 transition-all duration-500 hover:bg-slate-700/80 hover:shadow-red-500/20 hover:scale-105 group">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" class="w-12 h-12" alt="Java">
+                        <span class="font-bold tracking-wide">Java</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="max-w-7xl mx-auto px-4 py-20 reveal">
+            <h3 class="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 mb-16 text-center">
+                Mobile & Web Masterpieces
+            </h3>
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Projects will be injected here if dynamic, or hardcoded for single HTML -->
+                <div class="group relative bg-slate-900/40 backdrop-blur-xl border border-white/5 rounded-3xl overflow-hidden shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:border-emerald-500/30">
+                    <div class="aspect-video overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=1974&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Origa M Collect">
+                    </div>
+                    <div class="p-8">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-bold rounded-full">BLOC</span>
+                            <span class="px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-bold rounded-full">API</span>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-3">Origa M Collect</h4>
+                        <p class="text-gray-400 mb-6 line-clamp-3">Origa provides e2e mapping of the collection process, enabling real-time visibility down to every event and customer touch.</p>
+                        <a href="https://play.google.com/store/apps/details?id=com.mcollect.origa.ai" target="_blank" class="inline-flex items-center gap-2 text-emerald-400 font-bold hover:underline">
+                            View on Play Store
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 22 3 22 10"/><line x1="14" y1="10" x2="22" y2="2"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="group relative bg-slate-900/40 backdrop-blur-xl border border-white/5 rounded-3xl overflow-hidden shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:border-blue-500/30">
+                    <div class="aspect-video overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1526778548025-14e7534435e9?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Indus Ind INDIE App">
+                    </div>
+                    <div class="p-8">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold rounded-full">React Native</span>
+                            <span class="px-3 py-1 bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold rounded-full">UPI</span>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-3">Indus Ind INDIE App</h4>
+                        <p class="text-gray-400 mb-6 line-clamp-3">Worked on developing React Native applications for the IndusInd project, including core component creation and UPI functionality.</p>
+                        <a href="https://play.google.com/store/apps/details?id=com.indusind.indie" target="_blank" class="inline-flex items-center gap-2 text-blue-400 font-bold hover:underline">
+                            View on Play Store
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 22 3 22 10"/><line x1="14" y1="10" x2="22" y2="2"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="group relative bg-slate-900/40 backdrop-blur-xl border border-white/5 rounded-3xl overflow-hidden shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:border-orange-500/30">
+                    <div class="aspect-video overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1563013544-824345e52120?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Visa Pay">
+                    </div>
+                    <div class="p-8">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-bold rounded-full">Visa Pay</span>
+                            <span class="px-3 py-1 bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-bold rounded-full">Banking</span>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-3">Visa Pay</h4>
+                        <p class="text-gray-400 mb-6 line-clamp-3">Developed and maintained mobile applications for the Visa Pay app, focusing on enhanced user experience and core banking functionalities.</p>
+                        <a href="https://play.google.com/store/apps/details?id=com.visa.cemea.visapay" target="_blank" class="inline-flex items-center gap-2 text-orange-400 font-bold hover:underline">
+                            View on Play Store
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 22 3 22 10"/><line x1="14" y1="10" x2="22" y2="2"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="group relative bg-slate-900/40 backdrop-blur-xl border border-white/5 rounded-3xl overflow-hidden shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:border-purple-500/30">
+                    <div class="aspect-video overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1580820267682-423da823db52?q=80&w=1974&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="SBI Data Migration">
+                    </div>
+                    <div class="p-8">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-bold rounded-full">AWS</span>
+                            <span class="px-3 py-1 bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-bold rounded-full">Encryption</span>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-3">SBI Data Migration</h4>
+                        <p class="text-gray-400 mb-6 line-clamp-3">Worked on the SBI data migration project, converting data from external devices into the system using AWS and GCS.</p>
+                        <span class="text-gray-500 italic text-sm">Internal Project</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="max-w-4xl mx-auto px-4 py-20 reveal">
+            <div class="bg-slate-900/70 backdrop-blur-xl rounded-3xl p-10 border border-emerald-500/20 shadow-2xl">
+                <h2 class="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 mb-4 text-center">
+                    Get In Touch
+                </h2>
+
+                <p class="text-xl text-gray-300 text-center mb-12 leading-relaxed">
+                    Let's Connect & Create Something Amazing
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-slate-800/50 rounded-2xl p-6 border border-emerald-500/10 hover:border-emerald-500/30 transition-all duration-300 group">
+                        <h4 class="text-lg font-semibold text-teal-300 mb-4 flex items-center gap-3">
+                            <div class="bg-emerald-500/10 p-2 rounded-lg group-hover:scale-110 transition-transform">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                            </div>
+                            Email
+                        </h4>
+                        <a href="mailto:jonessunil9601@gmail.com" class="text-emerald-300 hover:text-emerald-400 transition-colors break-all font-medium">
+                            jonessunil9601@gmail.com
+                        </a>
+                    </div>
+
+                    <div class="bg-slate-800/50 rounded-2xl p-6 border border-emerald-500/10 hover:border-emerald-500/30 transition-all duration-300 group">
+                        <h4 class="text-lg font-semibold text-teal-300 mb-4 flex items-center gap-3">
+                            <div class="bg-emerald-500/10 p-2 rounded-lg group-hover:scale-110 transition-transform">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            </div>
+                            Phone
+                        </h4>
+                        <a href="tel:+919361441983" class="text-emerald-300 hover:text-emerald-400 transition-colors break-all font-medium">
+                            +91-9361441983
+                        </a>
+                    </div>
+                </div>
+
+                <div class="mt-12 flex justify-center gap-8">
+                    <a href="https://github.com/Jones9601" target="_blank" class="group flex flex-col items-center gap-2">
+                        <div class="bg-slate-800 p-4 rounded-full border border-slate-700 group-hover:border-emerald-400 transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(16,185,129,0.3)]">
+                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.339-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.987 1.029-2.687-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.7 1.028 1.594 1.028 2.687 0 3.847-2.337 4.695-4.566 4.944.36.31.68.921.68 1.857 0 1.34-.012 2.421-.012 2.751 0 .267.18.577.688.48C19.138 20.2 22 16.447 22 12.021 22 6.484 17.523 2 12 2z" /></svg>
+                        </div>
+                        <span class="text-xs font-bold text-slate-400 group-hover:text-emerald-400">GitHub</span>
+                    </a>
+                    <a href="https://linkedin.com/in/jones-j-ab5272611" target="_blank" class="group flex flex-col items-center gap-2">
+                        <div class="bg-slate-800 p-4 rounded-full border border-slate-700 group-hover:border-blue-400 transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.3)]">
+                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.604c0-1.337-.025-3.063-1.868-3.063-1.868 0-2.154 1.459-2.154 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.761 1.381-1.563 2.844-1.563 3.043 0 3.604 2.004 3.604 4.609v5.587z" /></svg>
+                        </div>
+                        <span class="text-xs font-bold text-slate-400 group-hover:text-blue-400">LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="py-12 border-t border-white/5 text-center text-slate-500">
+            <p class="font-bold tracking-widest text-xs uppercase mb-2">Designed & Built by Jones J</p>
+            <p class="text-[10px]">&copy; 2026 All rights reserved.</p>
+        </footer>
+    </main>
+
+    <!-- Scroll to Top -->
+    <button id="scroll-to-top" class="fixed bottom-8 right-8 p-4 bg-emerald-500 text-slate-950 rounded-2xl shadow-2xl transition-all duration-300 translate-y-24 opacity-0 hover:scale-110 active:scale-95 z-50">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+    </button>
+
+    <script>
+        // Progress Bar
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("progress-bar").style.width = scrolled + "%";
+
+            // Scroll to Top Button
+            const scrollBtn = document.getElementById("scroll-to-top");
+            if (winScroll > 500) {
+                scrollBtn.classList.remove("translate-y-24", "opacity-0");
+            } else {
+                scrollBtn.classList.add("translate-y-24", "opacity-0");
+            }
+
+            // Parallax Blobs
+            const blob1 = document.getElementById("blob-1");
+            const blob2 = document.getElementById("blob-2");
+            blob1.style.transform = `translateY(${winScroll * 0.1}px)`;
+            blob2.style.transform = `translateY(${winScroll * -0.15}px)`;
+
+            // Reveal on Scroll
+            const reveals = document.querySelectorAll(".reveal");
+            reveals.forEach(reveal => {
+                const windowHeight = window.innerHeight;
+                const revealTop = reveal.getBoundingClientRect().top;
+                const revealPoint = 150;
+                if (revealTop < windowHeight - revealPoint) {
+                    reveal.classList.add("active");
+                }
+            });
+
+            // Nav Spy
+            const sections = document.querySelectorAll("section");
+            const navLinks = document.querySelectorAll(".nav-link");
+            let current = "";
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (winScroll >= sectionTop - 200) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove("text-emerald-400");
+                link.classList.add("text-slate-400");
+                if (link.getAttribute("data-section") === current) {
+                    link.classList.add("text-emerald-400");
+                    link.classList.remove("text-slate-400");
+                }
+            });
+        });
+
+        document.getElementById("scroll-to-top").addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Initial check for reveal
+        window.dispatchEvent(new Event('scroll'));
+    </script>
+</body>
+</html>
